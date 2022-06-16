@@ -27,4 +27,11 @@ class QuestionController extends Controller
             "item" => $question,
         ], 200);
     }
+    public function deleteQuestion(Request $request){
+        
+        Question::where('question_id',$request->question_id)->delete();
+        return response()->json([
+            "success" => "Deleted Question",
+        ], 200);
+    }
 }
