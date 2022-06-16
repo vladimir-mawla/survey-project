@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Survey;
+use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
