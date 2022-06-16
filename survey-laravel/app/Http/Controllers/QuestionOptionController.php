@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\QuestionOption;
 use Illuminate\Http\Request;
 
 class QuestionOptionController extends Controller
