@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\QuestionController;
 
 
 /*
@@ -38,4 +39,10 @@ Route::group(['prefix' => 'surveys'], function(){
     Route::post('/getsurveys', [SurveyController::class, 'getSurveys']);
     Route::post('/deletesurveys', [SurveyController::class, 'deleteSurveys']);
     Route::post('/getsurveyanswers', [SurveyController::class, 'getSurveyAnswers']);
+});
+
+Route::group(['prefix' => 'questions'], function(){
+    Route::post('/addquestion', [QuestionController::class, 'addQuestion']);
+    Route::post('/getquestionsofsurveys', [QuestionController::class, 'getQuestionsOfSurveys']);
+    Route::post('/deletequestion', [QuestionController::class, 'deleteQuestion']);
 });
