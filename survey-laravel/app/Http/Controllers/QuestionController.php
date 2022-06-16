@@ -19,4 +19,12 @@ class QuestionController extends Controller
             "status" => "Success",
         ], 200);
     }
+    public function getQuestionsOfSurveys(Request $request){
+        $survey_id = $request->survey_id;
+        $question = Question::where('survey_id', $survey_id)->get();
+        return response()->json([
+            "status" => "Success",
+            "item" => $question,
+        ], 200);
+    }
 }
