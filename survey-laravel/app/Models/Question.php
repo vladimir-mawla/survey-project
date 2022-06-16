@@ -12,4 +12,9 @@ class Question extends Model
     {
         return $this->hasMany(QuestionOption::class);
     }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }
