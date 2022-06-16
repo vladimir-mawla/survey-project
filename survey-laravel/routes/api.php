@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\QuestionTypeController;
 
 
 /*
@@ -51,4 +52,8 @@ Route::group(['prefix' => 'questions'], function(){
 Route::group(['prefix' => 'answers'], function(){
     Route::post('/addanswer', [AnswerController::class, 'addAnswer']);
     Route::post('/getanswerofquestion', [AnswerController::class, 'getAnswerOfQuestion']);
+});
+
+Route::group(['prefix' => 'questiontypes'], function(){
+    Route::post('/addquestiontype', [QuestionTypeController::class, 'addQuestionType']);
 });
