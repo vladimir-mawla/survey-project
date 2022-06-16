@@ -60,6 +60,6 @@ class User extends Authenticatable implements JWTSubject
     }
     public function answeredSurveys()
     {
-        return $this->hasMany(AnswerSurvey::class);
+        return $this->hasMany(AnsweredSurvey::class);
     }
 }
