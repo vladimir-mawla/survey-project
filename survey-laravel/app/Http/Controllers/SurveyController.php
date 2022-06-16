@@ -33,7 +33,7 @@ class SurveyController extends Controller
             "survey" => $survey,
         ], 200);
     }
-    public function getSurveys(Request $request){
+    public function getSurveys(){
         $surveys = Survey::all();
         
         return response()->json([
