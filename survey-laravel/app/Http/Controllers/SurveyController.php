@@ -43,7 +43,7 @@ class SurveyController extends Controller
     }
     public function deleteSurveys(Request $request){
         
-        Survey::where('survey_id',$request->survey_id)->delete();
+        Survey::where('id',$request->survey_id)->delete();
         return response()->json([
             "survey" => "Deleted Survey",
         ], 200);
