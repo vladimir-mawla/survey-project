@@ -33,4 +33,9 @@ Route::group([
 
 Route::group(['prefix' => 'surveys'], function(){
     Route::post('/addsurvey', [SurveyController::class, 'addSurvey']);
+    Route::post('/searchsurvey', [SurveyController::class, 'searchSurvey']);
+    Route::post('/getsurveybyid', [SurveyController::class, 'getSurveyById']);
+    Route::post('/getsurveys', [SurveyController::class, 'getSurveys']);
+    Route::post('/deletesurveys', [SurveyController::class, 'deleteSurveys']);
+    Route::post('/getsurveyanswers', [SurveyController::class, 'getSurveyAnswers']);
 });
