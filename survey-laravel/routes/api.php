@@ -61,4 +61,5 @@ Route::group(['prefix' => 'questiontypes'], function(){
 
 Route::group(['prefix' => 'questionoptions'], function(){
     Route::post('/addquestionoption', [QuestionOptionController::class, 'addQuestionOption']);
+    Route::post('/getquestionoptions', [QuestionOptionController::class, 'getQuestionOptions']);
 });

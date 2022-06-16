@@ -16,4 +16,15 @@ class QuestionOptionController extends Controller
             "status" => "Success",
         ], 200);
     }
+    public function getQuestionOptions(Request $request){
+
+        $question_id = $request->question_id;
+
+        $options = QuestionOption::where('question_id', $question_id)->get();
+        
+        return response()->json([
+            "status" => "success",
+            "surveys" => $options,
+        ], 200);
+    }
 }
