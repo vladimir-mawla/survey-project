@@ -30,7 +30,7 @@ class SurveyController extends Controller
         $survey = Survey::find($survey_id);
         return response()->json([
             "status" => "Success",
-            "item" => $survey,
+            "survey" => $survey,
         ], 200);
     }
     public function getSurveys(Request $request){
@@ -38,14 +38,14 @@ class SurveyController extends Controller
         
         return response()->json([
             "status" => "success",
-            "items" => $surveys,
+            "surveys" => $surveys,
         ], 200);
     }
     public function deleteSurveys(Request $request){
         
         Survey::where('survey_id',$request->survey_id)->delete();
         return response()->json([
-            "success" => "Deleted Survey",
+            "survey" => "Deleted Survey",
         ], 200);
     }
     public function getSurveyAnswers(Request $request){

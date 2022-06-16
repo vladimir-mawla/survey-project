@@ -22,7 +22,7 @@ class AnswerController extends Controller
         $answer = Answer::where('question_id', $question_id)->get();
         return response()->json([
             "status" => "Success",
-            "item" => $answer,
+            "answer" => $answer,
         ], 200);
     }
 }

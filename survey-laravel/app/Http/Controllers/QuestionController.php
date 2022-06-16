@@ -24,7 +24,7 @@ class QuestionController extends Controller
         $question = Question::where('survey_id', $survey_id)->get();
         return response()->json([
             "status" => "Success",
-            "item" => $question,
+            "question" => $question,
         ], 200);
     }
     public function deleteQuestion(Request $request){
