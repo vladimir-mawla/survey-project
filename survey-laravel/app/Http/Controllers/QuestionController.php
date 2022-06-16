@@ -17,6 +17,7 @@ class QuestionController extends Controller
 
         return response()->json([
             "status" => "Success",
+            "question" => $question,
         ], 200);
     }
     public function getQuestionsOfSurveys(Request $request){
