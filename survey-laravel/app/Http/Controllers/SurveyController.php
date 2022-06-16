@@ -18,11 +18,19 @@ class SurveyController extends Controller
     }
     public function searchSurvey(Request $request){
         $name = $request->name;
-        $survey = Item::where("name", "LIKE", "%$name%")->get();
+        $survey = Survey::where("name", "LIKE", "%$name%")->get();
         
         return response()->json([
             "status" => "Success",
             "result" => $survey
+        ], 200);
+    }
+    public function getSurveyById(Request $request){
+        $survey_id = $request->survey_id;
+        $survey = Survey::find($survey_id);
+        return response()->json([
+            "status" => "Success",
+            "item" => $survey,
         ], 200);
     }
 }
