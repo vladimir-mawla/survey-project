@@ -41,4 +41,11 @@ class SurveyController extends Controller
             "items" => $surveys,
         ], 200);
     }
+    public function deleteSurveys(Request $request){
+        
+        Survey::where('survey_id',$request->survey_id)->delete();
+        return response()->json([
+            "success" => "Deleted Survey",
+        ], 200);
+    }
 }
