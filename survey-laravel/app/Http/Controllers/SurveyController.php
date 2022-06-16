@@ -48,4 +48,16 @@ class SurveyController extends Controller
             "success" => "Deleted Survey",
         ], 200);
     }
+    public function getSurveyAnswers(Request $request){
+        $survey_id = $request->survey_id;
+        $survey = Survey::find($survey_id);
+        $questions = Question::where('survey_id', $survey_id)->get();
+        $answers = Answer::where('survey_id', $survey_id)->get();
+        return response()->json([
+            "status" => "Success",
+            "survey" => $survey,
+            "questions" => $questions,
+            "answers" => $answers,
+        ], 200);
+    }
 }
