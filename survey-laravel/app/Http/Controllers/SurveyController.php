@@ -16,4 +16,13 @@ class SurveyController extends Controller
             "status" => "Success",
         ], 200);
     }
+    public function searchSurvey(Request $request){
+        $name = $request->name;
+        $survey = Item::where("name", "LIKE", "%$name%")->get();
+        
+        return response()->json([
+            "status" => "Success",
+            "result" => $survey
+        ], 200);
+    }
 }
