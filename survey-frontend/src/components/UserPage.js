@@ -1,11 +1,13 @@
 import React from 'react';
 import Navbar from './Navbar';
+import SurveyComponent from './SurveyComponent';
 
 const UserPage = () => {
     return (
         <div>
             <Navbar />
-            test user
+            test
+            <SurveyComponent />
         </div>
     )
 }
