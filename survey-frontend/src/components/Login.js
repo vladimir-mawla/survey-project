@@ -9,7 +9,7 @@ const Login = () => {
     }
   return (
     <div>
-      <div>
+      <form>
           <input type="email" placeholder="email" id="login_email" />
           <input type="password" placeholder="password" id="login_password" />
           <Button text={'Login'} className={'login-btn'} onClick = {() => {
@@ -18,7 +18,7 @@ const Login = () => {
           <p className="goto-link">
             <Link to={'/signup'}>Create Account</Link>
           </p>
-      </div>
+      </form>
     </div>
   );
 };

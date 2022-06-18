@@ -9,7 +9,7 @@ const Signup = () => {
     }
   return (
     <div>
-      <div>
+      <form>
           <input type="email" placeholder="email" id="signup_email" />
           <input type="password" placeholder="password" id="signup_password" />
           <Button text={'Signup'} className={'signup-btn'} onClick = {() => {
@@ -18,7 +18,7 @@ const Signup = () => {
           <p className="goto-link">
           <Link to={'/'}>Have an Account?</Link>
           </p>
-      </div>
+      </form>
     </div>
   );
 };
