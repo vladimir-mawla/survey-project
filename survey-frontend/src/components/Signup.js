@@ -11,7 +11,7 @@ const Signup = () => {
     <div>
       <form>
           <input type="email" placeholder="email" id="signup_email" />
-          <input type="password" placeholder="password" id="signup_password" />
+          <input type="password" placeholder="password" id="signup_password" autoComplete="on"/>
           <Button text={'Signup'} className={'signup-btn'} onClick = {() => {
               signup()
           }}/>
