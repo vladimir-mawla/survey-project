@@ -16,7 +16,7 @@ class SurveyController extends Controller
 
         return response()->json([
             "status" => "Success",
-            "survey_id" => $survey,
+            "survey" => $survey,
         ], 200);
     }
     public function searchSurvey(Request $request){
