@@ -51,7 +51,7 @@ const QuestionComponent = () => {
                 {question.content}
               </li>
               {console.log('test',question["question_type_id"])}
-            {question["question_type_id"] === 1 ? <input></input> : question["question_type_id"] === 2 ? <input id="answer" type="radio"/> : question["question_type_id"] === 3 ? <checkbox id="answer"type="radio"/> : ''}
+            {question["question_type_id"] === 1 ? <input id='answer'></input> : question["question_type_id"] === 2 ? <input id="answer" type="radio"/> : question["question_type_id"] === 3 ? <checkbox id="answer"type="radio"/> : ''}
 
             
             </div>
