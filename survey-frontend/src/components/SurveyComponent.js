@@ -41,8 +41,8 @@ return (
     <div>
         <ul>
             {surveys.map(survey => (
-                <li id={survey.id} key={survey.id}>
-                    {survey.name} {user_type=='1' ? "x" : ""} onClick={() => open()}</li>
+                <li id={survey.id} key={survey.id} onClick={() => open()}>
+                    {survey.name} {user_type=='1' ? "x" : ""}</li>
             ))}
         </ul>
     </div>
