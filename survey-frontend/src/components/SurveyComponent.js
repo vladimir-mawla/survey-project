@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 
 const axios = require("axios").default;
 
-
 const SurveyComponent = () => {
-
+  const handleClick = (event) => {
+    localStorage.setItem("survey_id", event.currentTarget.id)
+    // console.log(event.currentTarget.id);
+  };
   const [surveys, setSurveys] = useState([]);
 
   //   const surveys = ["survey1", "survey2", "survey3", "survey4"];
@@ -41,8 +43,10 @@ const SurveyComponent = () => {
     <div>
       <ul>
         {surveys.map((survey) => (
-          <li id={survey.id} key={survey.id} onClick={() => open()}>
-            <Link to={"/questioncomponent"}>{survey.name} {user_type == "1" ? "x" : ""}</Link>
+          <li id={survey.id} key={survey.id} onClick={handleClick}>
+            <Link to={"/questioncomponent"}>
+              {survey.name} {user_type == "1" ? "x" : ""}
+            </Link>
           </li>
         ))}
       </ul>

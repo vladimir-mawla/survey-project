@@ -12,7 +12,7 @@ const QuestionComponent = () => {
       .post("http://127.0.0.1:8000/api/v1/questions/getquestionsofsurveys", {survey_id} )
     
         .then((response) => {
-            const s = response.data["questions"]
+            const s = response.data["question"]
             setQuestions(s)
         });
     }, [])
