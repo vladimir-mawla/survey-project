@@ -39,6 +39,7 @@ const Login = () => {
         if(res.data["access_token"]){
 
           localStorage.setItem('access_token', res.data["access_token"]);
+          localStorage.setItem('user_type', res.data["user"]["user_type"]);
           if(res.data["user"]["user_type"] == 1){
             navigate('/adminpage')
           }else{navigate('/userpage')}
