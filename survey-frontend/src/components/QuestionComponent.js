@@ -6,16 +6,18 @@ import Button from "./Button";
 const QuestionComponent = () => {
   const [questions, setQuestions] = useState([]);
   const [questiontype, setQuestionType] = useState([]);
+  const [questionoption, setQuestionOption] = useState([]);
 
   const user_type = localStorage.getItem("user_type");
   const question_id = localStorage.getItem("question_id");
   const survey_id = localStorage.getItem("survey_id");
   const user_id = localStorage.getItem("user_id");
   let answer = document.getElementById("answer");
-  useEffect(() => {
+
+  async function getQuestions() {
     axios
       .post("http://127.0.0.1:8000/api/v1/questions/getquestionsofsurveys", {
-        survey_id,
+        survey_id: survey_id,
       })
 
       .then((response) => {
@@ -24,9 +26,11 @@ const QuestionComponent = () => {
         for (var i = 0; i < s.length; i++) {
           const q = response.data["question"][i]["question_type_id"];
           setQuestionType(q);
-
         }
       });
+  }
+  useEffect(() => {
+    getQuestions();
   }, []);
   function submit() {
     axios
@@ -46,11 +50,10 @@ const QuestionComponent = () => {
     <div>
       <ul>
         {questions.map((question) => (
-          <div>
-            <li id={question.id} key={question.id}>
-              {question.content}
-            </li>
-            {question["question_type_id"] === 1 ? (
+          <div key={question.id}>
+            <li id={question.id}>{question.content}</li>
+            <QuestionOptions />
+            {/* {question["question_type_id"] === 1 ? (
               <input id="answer"></input>
             ) : question["question_type_id"] === 2 ? (
               <input id="answer" type="radio" />
@@ -58,7 +61,7 @@ const QuestionComponent = () => {
               <checkbox id="answer" type="checkbox" />
             ) : (
               ""
-            )}
+            )} */}
           </div>
         ))}
         <Button

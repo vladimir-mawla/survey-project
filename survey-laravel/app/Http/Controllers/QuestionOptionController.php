@@ -26,7 +26,7 @@ class QuestionOptionController extends Controller
         
         return response()->json([
             "status" => "success",
-            "surveys" => $options,
+            "options" => $options,
         ], 200);
     }
 }
