@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 const axios = require('axios').default;
 const SurveyComponent = () => {
-  var admin = true;
   const [surveys, setSurveys]= useState([])
 
 //   const surveys = ["survey1", "survey2", "survey3", "survey4"];
@@ -36,7 +35,7 @@ return (
     <div>
         <ul>
             {surveys.map(survey => (
-                <li id={survey.id} key={survey.id}>{survey.name}</li>
+                <li id={survey.id} key={survey.id}>{survey.name} {user_type=='1' ? "x" : ""}</li>
             ))}
         </ul>
     </div>
