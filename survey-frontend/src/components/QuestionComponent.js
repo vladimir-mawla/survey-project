@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "./Button";
+import QuestionOptions from "./QuestionOptions";
 
 const QuestionComponent = () => {
   const [questions, setQuestions] = useState([]);
@@ -52,7 +53,7 @@ const QuestionComponent = () => {
         {questions.map((question) => (
           <div key={question.id}>
             <li id={question.id}>{question.content}</li>
-            <QuestionOptions />
+            <QuestionOptions question_id={question.id} question_type={question['question_type_id']}/>
             {/* {question["question_type_id"] === 1 ? (
               <input id="answer"></input>
             ) : question["question_type_id"] === 2 ? (
