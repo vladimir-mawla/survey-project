@@ -7,6 +7,8 @@ const SurveyComponent = () => {
 
 //   const surveys = ["survey1", "survey2", "survey3", "survey4"];
   var cat = document.getElementById("cat_search");
+  const user_type = localStorage.getItem('user_type');
+
 useEffect(() => {
   axios
   .get("http://127.0.0.1:8000/api/v1/surveys/getsurveys")
