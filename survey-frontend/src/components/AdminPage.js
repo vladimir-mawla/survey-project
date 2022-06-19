@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './Button';
 import Navbar from './Navbar';
 import SurveyComponent from './SurveyComponent';
+import AddSurveyComponent from './AddSurveyComponent';
 
 const AdminPage = () => {
     return (
@@ -9,6 +10,7 @@ const AdminPage = () => {
             <Navbar />
             test
             <SurveyComponent />
+            <AddSurveyComponent />
         </div>
     )
 }
