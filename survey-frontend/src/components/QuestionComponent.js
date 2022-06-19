@@ -8,7 +8,7 @@ const QuestionComponent = () => {
   const user_type = localStorage.getItem("user_type");
   const survey_id = localStorage.getItem("survey_id");
   const user_id = localStorage.getItem("user_id");
-
+  let answer = document.getElementById('answer')
   useEffect(() => {
     axios
       .post("http://127.0.0.1:8000/api/v1/questions/getquestionsofsurveys", {
@@ -22,7 +22,7 @@ const QuestionComponent = () => {
   }, []);
   useEffect(() => {
     axios
-      .post("http://127.0.0.1:8000/api/v1/answers/addanswer", { user_id, survey_id, question_id, answer })
+      .post("http://127.0.0.1:8000/api/v1/answers/addanswer", { user_id, survey_id, answer })
 
       .then((response) => {
         const a = response.data["answer"];
@@ -37,7 +37,7 @@ const QuestionComponent = () => {
             <li id={question.id} key={question.id}>
               {question.content}
             </li>
-            
+            {/* <input id='answer'></input> */}
           </div>
         ))}
       </ul>
