@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 const axios = require('axios').default;
+
 const SurveyComponent = () => {
+  const open = () => {
+      Navigate("/questionscomponent")
+  }
   const [surveys, setSurveys]= useState([])
 
 //   const surveys = ["survey1", "survey2", "survey3", "survey4"];
@@ -31,11 +36,13 @@ useEffect(() => {
     //   );
     });
 }, [])
+
 return (
     <div>
         <ul>
             {surveys.map(survey => (
-                <li id={survey.id} key={survey.id}>{survey.name} {user_type=='1' ? "x" : ""}</li>
+                <li id={survey.id} key={survey.id}>
+                    {survey.name} {user_type=='1' ? "x" : ""} onClick={() => open()}</li>
             ))}
         </ul>
     </div>
