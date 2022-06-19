@@ -1,52 +1,53 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-const axios = require('axios').default;
+import QuestionComponent from "./QuestionComponent";
+import { Link } from "react-router-dom";
+
+const axios = require("axios").default;
+
 
 const SurveyComponent = () => {
-  const open = () => {
-      Navigate("/questionscomponent")
-  }
-  const [surveys, setSurveys]= useState([])
 
-//   const surveys = ["survey1", "survey2", "survey3", "survey4"];
-  var cat = document.getElementById("cat_search");
-  const user_type = localStorage.getItem('user_type');
+  const [surveys, setSurveys] = useState([]);
 
-useEffect(() => {
-  axios
-  .get("http://127.0.0.1:8000/api/v1/surveys/getsurveys")
+  //   const surveys = ["survey1", "survey2", "survey3", "survey4"];
+  const user_type = localStorage.getItem("user_type");
 
-    .then((response) => {
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/v1/surveys/getsurveys")
 
-        const s = response.data["surveys"]
-        setSurveys(s)
-    //   return (
-    //     <div>
-    //       <h1>hello</h1>
-    //       {response.data["surveys"].map((survey) => (
-    //         <div id={survey["id"]}>
-    //           <p>
-    //             {" "}
-    //             hello {survey["name"]} {admin ? "x" : ""}
-    //           </p>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   );
-    });
-}, [])
+      .then((response) => {
+        const s = response.data["surveys"];
+        setSurveys(s);
+        //   return (
+        //     <div>
+        //       <h1>hello</h1>
+        //       {response.data["surveys"].map((survey) => (
+        //         <div id={survey["id"]}>
+        //           <p>
+        //             {" "}
+        //             hello {survey["name"]} {admin ? "x" : ""}
+        //           </p>
+        //         </div>
+        //       ))}
+        //     </div>
+        //   );
+      });
+  }, []);
 
-return (
+  return (
     <div>
-        <ul>
-            {surveys.map(survey => (
-                <li id={survey.id} key={survey.id} onClick={() => open()}>
-                    {survey.name} {user_type=='1' ? "x" : ""}</li>
-            ))}
-        </ul>
+      <ul>
+        {surveys.map((survey) => (
+          <li id={survey.id} key={survey.id} onClick={() => open()}>
+            <Link to={"/questioncomponent"}>{survey.name} {user_type == "1" ? "x" : ""}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
-)
+  );
 };
 
 export default SurveyComponent;
