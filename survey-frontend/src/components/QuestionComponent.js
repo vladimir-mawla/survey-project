@@ -20,8 +20,13 @@ const QuestionComponent = () => {
         console.log(response.data["question"][0]["question_type_id"]);
         const s = response.data["question"];
         setQuestions(s);
-        const q = response.data["question"][0]["question_type_id"];
-        setQuestionType(q);
+        console.log('hellooooo', s.length)
+        for(var i=0; i < s.length; i++){
+          const q = response.data["question"][i]["question_type_id"];
+          setQuestionType(q);
+          console.log('i', i)
+          console.log('q', q)
+        }
       });
   }, []);
   useEffect(() => {
@@ -36,7 +41,7 @@ const QuestionComponent = () => {
         const a = response.data["answer"];
       });
   }, []);
-  if (questiontype === 1) {
+
     return (
       <div>
         <ul>
@@ -45,60 +50,63 @@ const QuestionComponent = () => {
               <li id={question.id} key={question.id}>
                 {question.content}
               </li>
-              <input id="answer"></input>
+              {console.log('test',question["question_type_id"])}
+            {question["question_type_id"] === 1 ? <input></input> : question["question_type_id"] === 2 ? <input id="answer" type="radio"/> : question["question_type_id"] === 3 ? <checkbox id="answer"type="radio"/> : ''}
+
+            
             </div>
           ))}
         </ul>
       </div>
     );
-  } else if (questiontype === 2) {
-    return (
-      <div>
-        <ul>
-          {questions.map((question) => (
-            <div>
-              <li id={question.id} key={question.id}>
-                {question.content}
-              </li>
-            </div>
-          ))}
-          {questionoptions.map((option) => (
-            <div>
-              <input
-                id="answer"
-                type="radio"
-                value={question_option.id}
-                name={question_option.name}
-              />
-            </div>
-          ))}
-        </ul>
-      </div>
-    );
-  } else if (questiontype === 3) {
-    return (
-      <div>
-        <ul>
-          {questions.map((question) => (
-            <div>
-              <li id={question.id} key={question.id}>
-                {question.content}
-              </li>
-            </div>
-          ))}
-          {questionoptions.map((option) => (
-            <div>
-              <checkbox
-                id="answer"
-                type="radio"
-                value={question_option.id}
-                name={question_option.name}
-              />
-            </div>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+  //  else if (questiontype === 2) {
+  //   return (
+  //     <div>
+  //       <ul>
+  //         {questions.map((question) => (
+  //           <div>
+  //             <li id={question.id} key={question.id}>
+  //               {question.content}
+  //             </li>
+  //           </div>
+  //         ))}
+  //         {questionoptions.map((option) => (
+  //           <div>
+  //             <input
+  //               id="answer"
+  //               type="radio"
+  //               value={question_option.id}
+  //               name={question_option.name}
+  //             />
+  //           </div>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   );
+  // } else if (questiontype === 3) {
+  //   return (
+  //     <div>
+  //       <ul>
+  //         {questions.map((question) => (
+  //           <div>
+  //             <li id={question.id} key={question.id}>
+  //               {question.content}
+  //             </li>
+  //           </div>
+  //         ))}
+  //         {questionoptions.map((option) => (
+  //           <div>
+  //             <checkbox
+  //               id="answer"
+  //               type="radio"
+  //               value={question_option.id}
+  //               name={question_option.name}
+  //             />
+  //           </div>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   );
+  // }
 };
 export default QuestionComponent;
