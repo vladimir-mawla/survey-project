@@ -6,7 +6,7 @@ const QuestionComponent = () => {
     const [questions, setQuestions]= useState([])
 
     const user_type = localStorage.getItem('user_type');
-    const survey_id = 1
+    const survey_id = localStorage.getItem('survey_id')
     useEffect(() => {
       axios
       .post("http://127.0.0.1:8000/api/v1/questions/getquestionsofsurveys", {survey_id} )
