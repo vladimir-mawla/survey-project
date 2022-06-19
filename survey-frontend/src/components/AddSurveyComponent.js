@@ -20,7 +20,7 @@ const AddSurveyComponent = () => {
         localStorage.setItem("survey_id", response.data["survey"]["id"]);
       });
       input.current.value = '';
-    navigate('./addquestioncomponent');
+    navigate('../addquestioncomponent');
   }
   return (
     <div>
