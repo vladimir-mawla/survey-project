@@ -25,7 +25,7 @@ const Signup = () => {
       method: "post",
       credentials: "same-origin",
       body: JSON.stringify({
-        email: signup_name.value,
+        name: signup_name.value,
         email: signup_email.value,
         password: signup_password.value,
         password_confirmation: signup_password_confirmation.value,
@@ -39,7 +39,7 @@ const Signup = () => {
         }))
     )
         .then((res) => {
-        if(res.data["access_token"]){
+        if(res.data["message"]){
 
           localStorage.setItem('access_token', res.data["access_token"]);
           localStorage.setItem('user_type', res.data["user"]["user_type"]);
