@@ -4,22 +4,23 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 const AddQuestionComponent = () => {
+    
   const input = useRef(null);
 
   function submit() {
     const answer1 = document.getElementById("answer1");
-    const content = answer1.value;
+    const content = "hey there";
     const answer2 = document.getElementById("answer2");
-    const question_type_id = answer2.value;
+    const question_type_id = 1;
     const answer3 = document.getElementById("answer3");
-    const question_option_id = answer3.value;
+    const question_option_id = 2;
     axios
       .post("http://127.0.0.1:8000/api/v1/questions/addquestion", {
-        name,
+        content, question_type_id, question_option_id
       })
 
       .then((response) => {
-        localStorage.setItem("survey_id", response.data["survey"]["id"]);
+        localStorage.setItem("question_id", response.data["question"]["id"]);
       });
     input.current.value = "";
     //   Navigate('./userpage')
@@ -32,7 +33,7 @@ const AddQuestionComponent = () => {
         <option value="2">Radio</option>
         <option value="3">Checkbox</option>
       </select>
-      {question_type_id == 2 ? Navigate("./Options") : ''}
+      {/* {question_type_id == 2 ? Navigate("./Options") : ''} */}
       <Button
         text={"Submit"}
         className={"submit-answer"}

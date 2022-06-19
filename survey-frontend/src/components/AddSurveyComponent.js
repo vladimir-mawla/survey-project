@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import Button from "./Button";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddSurveyComponent = () => {
+    const navigate = useNavigate();
+
     const input = useRef(null)
 
   function submit() {
@@ -17,8 +19,8 @@ const AddSurveyComponent = () => {
       .then((response) => {
         localStorage.setItem("survey_id", response.data["survey"]["id"]);
       });
-      input.current.value = ''
-    //   Navigate('./userpage')
+      input.current.value = '';
+    navigate('./addquestioncomponent');
   }
   return (
     <div>

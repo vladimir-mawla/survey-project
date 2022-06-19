@@ -1,6 +1,7 @@
 import React from "react";
 addQuestionOption
 const Option = () => {
+
     function submit() {
         const question_id = localStorage.getItem('question_id')
         const answer = document.getElementById('answer')
