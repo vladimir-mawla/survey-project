@@ -65,13 +65,14 @@ const QuestionComponent = () => {
             )} */}
           </div>
         ))}
-        <Button
+        {/* <Button
           text={"Submit"}
+          b_id={'submit_answer'}
           className={"login-btn"}
           onClick={() => {
             submit();
           }}
-        />
+        /> */}
       </ul>
     </div>
   );

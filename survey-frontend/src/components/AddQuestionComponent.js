@@ -37,7 +37,7 @@ const AddQuestionComponent = () => {
     <div>
         <h1>hello</h1>
       <input ref={input} type="text" placeholder="Type Question" id="answer1" />
-      <select name="cars" id="answer2">
+      <select name="type" id="answer2">
         <option value="1">Text</option>
         <option value="2">Radio</option>
         <option value="3">Checkbox</option>
