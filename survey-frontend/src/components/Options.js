@@ -19,8 +19,8 @@ const Option = () => {
           <div>
               <input id='answer'></input>
               <Button
-          text={"Login"}
-          className={"login-btn"}
+          text={"Submit"}
+          className={"submit"}
           onClick={() => {
             submit();
           }}
