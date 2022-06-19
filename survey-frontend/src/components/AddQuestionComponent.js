@@ -4,28 +4,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AddQuestionComponent = () => {
-    const navigate = useNavigate();
+    var navigate = useNavigate();
+    var survey_id = localStorage.getItem('survey_id')
 
-    
+    // var answer3 = document.getElementById("answer3");
+
   const input = useRef(null);
 
   function submit() {
-    const answer1 = document.getElementById("answer1");
-    const content = answer1.value;
-    const answer2 = document.getElementById("answer2");
-    const question_type_id = answer2.value;
-    const answer3 = document.getElementById("answer3");
-    const question_option_id = answer3.value;
+    var answer1 = document.getElementById("answer1");
+    var answer2 = document.getElementById("answer2");
+    // var content = ;
+    var question_type_id = answer2.value;
+    // const question_option_id = answer3.value;
     axios
       .post("http://127.0.0.1:8000/api/v1/questions/addquestion", {
-        content, question_type_id, question_option_id
-      })
+        content:answer1.value,
+        survey_id:survey_id,
+        question_type_id:answer2.value,
+    })
 
       .then((response) => {
         localStorage.setItem("question_id", response.data["question"]["id"]);
       });
     input.current.value = "";
-    navigate('./addquestioncomponent')
+    // navigate('./addquestioncomponent')
+    if(question_type_id == 2 || question_type_id == 3){
+        navigate('../Options')
+    }
   }
   return (
     <div>

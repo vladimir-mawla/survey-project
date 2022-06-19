@@ -6,6 +6,7 @@ import QuestionComponent from './components/QuestionComponent'
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AddQuestionComponent from './components/AddQuestionComponent';
+import Options from './components/Options';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/userpage" element={<UserPage />}></Route>
       <Route path="/questioncomponent" element={<QuestionComponent />}></Route>
       <Route path="/addquestioncomponent" element={<AddQuestionComponent />}></Route>
+      <Route path="/Options" element={<Options />}></Route>
     </Routes>
     </BrowserRouter>
   );
