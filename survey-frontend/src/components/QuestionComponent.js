@@ -33,19 +33,19 @@ const QuestionComponent = () => {
   useEffect(() => {
     getQuestions();
   }, []);
-  function submit() {
-    axios
-      .post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
-        user_id: user_id,
-        survey_id: survey_id,
-        answer: "abc",
-        question_id: question_id,
-      })
+  // function submit() {
+  //   axios
+  //     .post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
+  //       user_id: user_id,
+  //       survey_id: survey_id,
+  //       answer: "abc",//jnjnnnnnnnnnnnnnnnnnnnnnnnn
+  //       question_id: question_id,
+  //     })
 
-      .then((response) => {
-        const a = response.data["answer"];
-      });
-  }
+  //     .then((response) => {
+  //       const a = response.data["answer"];
+  //     });
+  // }
 
   return (
     <div>
@@ -73,6 +73,7 @@ const QuestionComponent = () => {
             submit();
           }}
         /> */}
+        <button className={"login_btn"} id={"submit_answer"}>Submit</button>
       </ul>
     </div>
   );
