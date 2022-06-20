@@ -6,7 +6,7 @@ const UserPage = () => {
     return (
         <div>
             <Navbar />
-            test
+            
             <SurveyComponent />
         </div>
     )

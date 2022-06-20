@@ -41,13 +41,15 @@ const SurveyComponent = () => {
 
   return (
     <div>
-      <ul>
+      <ul className="surveys">
         {surveys.map((survey) => (
+          <Link to={"/questioncomponent"} style={{textDecoration:"none"}}>
           <li id={survey.id} key={survey.id} onClick={handleClick}>
-            <Link to={"/questioncomponent"}>
+            
               {survey.name} {user_type == "1" ? "x" : ""}
-            </Link>
+            
           </li>
+          </Link>
         ))}
       </ul>
     </div>

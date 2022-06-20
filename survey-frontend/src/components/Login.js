@@ -56,8 +56,8 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <div>
+    <center>
+      <div className="form">
         <input type="email" placeholder="email" id="login_email" />
         <input
           type="password"
@@ -76,7 +76,7 @@ const Login = () => {
           <Link to={"/signup"}>Create Account</Link>
         </p>
       </div>
-    </div>
+    </center>
   );
 };
 export default Login;

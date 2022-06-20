@@ -23,7 +23,8 @@ const AddSurveyComponent = () => {
     navigate('../addquestioncomponent');
   }
   return (
-    <div>
+    <center>
+        <h2>Add Survey</h2>
       <input ref={input} type="text" placeholder="Survey Name" id="answer" />
       <Button
         text={"Submit"}
@@ -32,7 +33,7 @@ const AddSurveyComponent = () => {
           submit();
         }}
       />
-    </div>
+    </center>
   );
 };
 export default AddSurveyComponent;

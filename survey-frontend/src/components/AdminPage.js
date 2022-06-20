@@ -9,10 +9,9 @@ const AdminPage = () => {
     return (
         <div>
             <Navbar />
-            test
-            <SurveyComponent />
-            Add Survey
             <AddSurveyComponent />
+            <SurveyComponent />
+
         </div>
     )
 }

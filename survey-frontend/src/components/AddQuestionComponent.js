@@ -34,8 +34,7 @@ const AddQuestionComponent = () => {
     }
   }
   return (
-    <div>
-        <h1>hello</h1>
+    <center className="add-question">
       <input ref={input} type="text" placeholder="Type Question" id="answer1" />
       <select name="type" id="answer2">
         <option value="1">Text</option>
@@ -50,7 +49,7 @@ const AddQuestionComponent = () => {
           submit();
         }}
       />
-    </div>
+    </center>
   );
 };
 export default AddQuestionComponent;

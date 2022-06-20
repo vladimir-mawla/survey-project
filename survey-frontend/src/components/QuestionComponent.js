@@ -48,8 +48,8 @@ const QuestionComponent = () => {
   // }
 
   return (
-    <div>
-      <ul>
+    <center>
+      <ul className="survey">
         {questions.map((question) => (
           <div key={question.id}>
             <li id={question.id}>{question.content}</li>
@@ -75,7 +75,7 @@ const QuestionComponent = () => {
         /> */}
         <button className={"login_btn"} id={"submit_answer"}>Submit</button>
       </ul>
-    </div>
+    </center>
   );
   //  else if (questiontype === 2) {
   //   return (

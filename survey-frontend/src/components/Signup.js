@@ -60,8 +60,8 @@ const Signup = () => {
   }
 
   return (
-    <div>
-      <div>
+    <center>
+      <div className="form">
         <input type="text" placeholder="Name" id="signup_name" />
         <input type="email" placeholder="Email" id="signup_email" />
         <input type="password" placeholder="Password" id="signup_password" autoComplete="on" />
@@ -77,7 +77,7 @@ const Signup = () => {
           <Link to={"/login"}>Have an Account?</Link>
         </p>
       </div>
-    </div>
+    </center>
   );
 };
 export default Signup;

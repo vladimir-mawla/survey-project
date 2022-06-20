@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar = () => {
     return (
         <div className='navbar'>
-            LOGO
+            Choose a Survey to Fill
         </div>
     )
 }
