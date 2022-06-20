@@ -5,19 +5,19 @@ import { useNavigate } from "react-router-dom";
 
 const AddQuestionComponent = () => {
     var navigate = useNavigate();
-    var survey_id = localStorage.getItem('survey_id')
+    var survey_id = localStorage.getItem('surveyz_id')
 
     // var answer3 = document.getElementById("answer3");
 
   const input = useRef(null);
 
-  function submit() {
+  async function submit() {
     var answer1 = document.getElementById("answer1");
     var answer2 = document.getElementById("answer2");
     // var content = ;
     var question_type_id = answer2.value;
     // const question_option_id = answer3.value;
-    axios
+    await axios
       .post("http://127.0.0.1:8000/api/v1/questions/addquestion", {
         content:answer1.value,
         survey_id:survey_id,
