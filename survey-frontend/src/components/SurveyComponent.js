@@ -46,7 +46,8 @@ const SurveyComponent = () => {
           <Link to={"/questioncomponent"} style={{textDecoration:"none"}}>
           <li id={survey.id} key={survey.id} onClick={handleClick}>
             
-              {survey.name} {user_type == "1" ? "x" : ""}
+              {survey.name} 
+              {/* {user_type == "1" ? "x" : ""} */}
             
           </li>
           </Link>
