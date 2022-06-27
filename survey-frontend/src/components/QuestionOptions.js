@@ -44,15 +44,15 @@ const QuestionOptions = (props) => {
   }, []);
   if (props.question_type == 1) {
 
-    document.getElementById('submit_answer').addEventListener('click', function(e){
+    document.getElementById('submit_answer').addEventListener('click', async function(e){
         e.preventDefault();
         const answer = document.getElementById(props.question_id + "input").value
-        // axios.post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
-        //   question_id: props.question_id,
-        //   answer: answer,
-        //   user_id: user_id,
-        // })
-        
+        await axios.post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
+          question_id: props.question_id,
+          answer: answer,
+          user_id: user_id,
+        })
+      
         console.log(answer)
     })
 
@@ -64,17 +64,17 @@ const QuestionOptions = (props) => {
     );
   } else if (props.question_type == 2) {
 
-    document.getElementById('submit_answer').addEventListener('click', function(e){
+    document.getElementById('submit_answer').addEventListener('click', async function(e){
         e.preventDefault();
 
         const answers = document.getElementsByName(props.question_id)
         for(var answer of answers){
             if(answer.checked){
-            //     axios.post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
-            //     question_id: props.question_id,
-            //     answer: answer.value,
-            //     user_id: user_id,
-            // })
+                await axios.post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
+                question_id: props.question_id,
+                answer: answer.value,
+                user_id: user_id,
+            })
             console.log(answer.value)
             }
         }
@@ -96,17 +96,17 @@ const QuestionOptions = (props) => {
     );
   } else if (props.question_type == 3) {
 
-    document.getElementById('submit_answer').addEventListener('click', function(e){
+    document.getElementById('submit_answer').addEventListener('click', async function(e){
         e.preventDefault();
 
         const answers = document.getElementsByName(props.question_id)
         for(var answer of answers){
             if(answer.checked){
-            //     axios.post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
-            //     question_id: props.question_id,
-            //     answer: answer.value,
-            //     user_id: user_id,
-            // })
+                await axios.post("http://127.0.0.1:8000/api/v1/answers/addanswer", {
+                question_id: props.question_id,
+                answer: answer.value,
+                user_id: user_id,
+            })
             console.log(answer.value)
 
             }
