@@ -1,9 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import { Component } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {

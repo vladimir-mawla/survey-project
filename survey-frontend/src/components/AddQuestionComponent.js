@@ -4,33 +4,28 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AddQuestionComponent = () => {
-    var navigate = useNavigate();
-    var survey_id = localStorage.getItem('surveyz_id')
-
-    // var answer3 = document.getElementById("answer3");
+  var navigate = useNavigate();
+  var survey_id = localStorage.getItem("surveyz_id");
 
   const input = useRef(null);
 
   async function submit() {
     var answer1 = document.getElementById("answer1");
     var answer2 = document.getElementById("answer2");
-    // var content = ;
     var question_type_id = answer2.value;
-    // const question_option_id = answer3.value;
     await axios
       .post("http://127.0.0.1:8000/api/v1/questions/addquestion", {
-        content:answer1.value,
-        survey_id:survey_id,
-        question_type_id:answer2.value,
-    })
+        content: answer1.value,
+        survey_id: survey_id,
+        question_type_id: answer2.value,
+      })
 
       .then((response) => {
         localStorage.setItem("question_id", response.data["question"]["id"]);
       });
     input.current.value = "";
-    // navigate('./addquestioncomponent')
-    if(question_type_id == 2 || question_type_id == 3){
-        navigate('../Options')
+    if (question_type_id == 2 || question_type_id == 3) {
+      navigate("../Options");
     }
   }
   return (
@@ -41,7 +36,6 @@ const AddQuestionComponent = () => {
         <option value="2">Radio</option>
         <option value="3">Checkbox</option>
       </select>
-      {/* {question_type_id == 2 ? navigate("./Options") : question_type_id == 3 ? navigate("./Options") : ''} */}
       <Button
         text={"Submit"}
         className={"submit-answer"}

@@ -1,16 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { Navigate } from 'react-router-dom';
-import { Component } from "react";
-import {useNavigate} from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
   function login() {
-    
     const login_email = document.getElementById("login_email");
     const login_password = document.getElementById("login_password");
     console.log(login_email.value);
@@ -27,32 +22,31 @@ const Login = () => {
         email: login_email.value,
         password: login_password.value,
       }),
-    }).then((response) =>
-      response
-        .json()
-        .then((data) => ({
+    })
+      .then((response) =>
+        response.json().then((data) => ({
           data: data,
           status: response.status,
         }))
-    )
-        .then((res) => {
-        if(res.data["access_token"]){
-
-          localStorage.setItem('access_token', res.data["access_token"]);
-          localStorage.setItem('user_type', res.data["user"]["user_type"]);
+      )
+      .then((res) => {
+        if (res.data["access_token"]) {
+          localStorage.setItem("access_token", res.data["access_token"]);
+          localStorage.setItem("user_type", res.data["user"]["user_type"]);
           localStorage.setItem("user_id", res.data["user"]["id"]);
 
-          if(res.data["user"]["user_type"] == 1){
-            navigate('/adminpage')
-          }else{navigate('/userpage')}
-          console.log('heyz')
-        }else {
-            alert("User not Found")
-            login_email.value = "";
-            login_password.value = "";
+          if (res.data["user"]["user_type"] == 1) {
+            navigate("/adminpage");
+          } else {
+            navigate("/userpage");
+          }
+          console.log("heyz");
+        } else {
+          alert("User not Found");
+          login_email.value = "";
+          login_password.value = "";
         }
-      })
-  
+      });
   }
 
   return (
