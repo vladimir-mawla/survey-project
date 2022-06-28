@@ -20,6 +20,11 @@ const QuestionComponent = () => {
         setQuestions(s);
       });
   }
+
+
+  
+
+
   useEffect(() => {
     getQuestions();
   }, []);
@@ -45,22 +50,16 @@ const QuestionComponent = () => {
   } else if (user_type == 1) {
     return (
       <div>
-        <center>
-          <ul className="survey">
+        <table>
+          <tr className="survey">
             {questions.map((question) => (
-              <div key={question.id}>
-                <li id={question.id}>{question.content}</li>
-                <QuestionOptions
-                  question_id={question.id}
-                  question_type={question["question_type_id"]}
-                />
-              </div>
+                <th key={question.id} id={question.id}>{question.content}</th>
             ))}
-            <button className={"login_btn"} id={"submit_answer"}>
-              Submit
-            </button>
-          </ul>
-        </center>
+            <tr>
+              <td> </td>
+            </tr>
+          </tr>
+        </table>
       </div>
     );
   }
