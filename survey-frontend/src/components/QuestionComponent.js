@@ -22,7 +22,17 @@ const QuestionComponent = () => {
   }
 
 
-  
+  // async function getAnswers() {
+  //   axios
+  //     .post("http://127.0.0.1:8000/api/v1/answers/getanswerofquestion", {
+  //       question_id: question_id,
+  //     })
+
+  //     .then((response) => {
+  //       const s = response.data["question"];
+  //       setQuestions(s);
+  //     });
+  // }
 
 
   useEffect(() => {
@@ -50,16 +60,12 @@ const QuestionComponent = () => {
   } else if (user_type == 1) {
     return (
       <div>
-        <table>
-          <tr className="survey">
-            {questions.map((question) => (
-                <th key={question.id} id={question.id}>{question.content}</th>
-            ))}
-            <tr>
-              <td> </td>
-            </tr>
-          </tr>
-        </table>
+        {questions.map((question) => (
+          <div>
+            <h4 key={question.id} id={question.id}>{question.content}</h4>
+            <h5>hello</h5>
+          </div>
+        ))}
       </div>
     );
   }
