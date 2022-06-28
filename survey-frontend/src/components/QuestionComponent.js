@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import QuestionOptions from "./QuestionOptions";
 
+const user_type = 1;
 const QuestionComponent = () => {
   const [questions, setQuestions] = useState([]);
 
@@ -22,24 +23,46 @@ const QuestionComponent = () => {
   useEffect(() => {
     getQuestions();
   }, []);
-
-  return (
-    <center>
-      <ul className="survey">
-        {questions.map((question) => (
-          <div key={question.id}>
-            <li id={question.id}>{question.content}</li>
-            <QuestionOptions
-              question_id={question.id}
-              question_type={question["question_type_id"]}
-            />
-          </div>
-        ))}
-        <button className={"login_btn"} id={"submit_answer"}>
-          Submit
-        </button>
-      </ul>
-    </center>
-  );
+  if (user_type == 0) {
+    return (
+      <center>
+        <ul className="survey">
+          {questions.map((question) => (
+            <div key={question.id}>
+              <li id={question.id}>{question.content}</li>
+              <QuestionOptions
+                question_id={question.id}
+                question_type={question["question_type_id"]}
+              />
+            </div>
+          ))}
+          <button className={"login_btn"} id={"submit_answer"}>
+            Submit
+          </button>
+        </ul>
+      </center>
+    );
+  } else if (user_type == 1) {
+    return (
+      <div>
+        <center>
+          <ul className="survey">
+            {questions.map((question) => (
+              <div key={question.id}>
+                <li id={question.id}>{question.content}</li>
+                <QuestionOptions
+                  question_id={question.id}
+                  question_type={question["question_type_id"]}
+                />
+              </div>
+            ))}
+            <button className={"login_btn"} id={"submit_answer"}>
+              Submit
+            </button>
+          </ul>
+        </center>
+      </div>
+    );
+  }
 };
 export default QuestionComponent;

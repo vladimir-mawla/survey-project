@@ -40,7 +40,6 @@ const Login = () => {
           } else {
             navigate("/userpage");
           }
-          console.log("heyz");
         } else {
           alert("User not Found");
           login_email.value = "";
