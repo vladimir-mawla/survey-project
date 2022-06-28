@@ -64,6 +64,7 @@ const QuestionComponent = () => {
         {questions.map((question) => (
           <div>
             <h4 className="question" key={question.id} id={question.id}>{question.content}</h4>
+            <GetAnswers question_id={question.id}/>
           </div>
         ))}
       </div>
