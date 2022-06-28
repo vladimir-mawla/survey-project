@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import QuestionOptions from "./QuestionOptions";
+import GetAnswers from "./GetAnswers";
 
 const user_type = 1;
 const QuestionComponent = () => {
@@ -62,8 +63,7 @@ const QuestionComponent = () => {
       <div>
         {questions.map((question) => (
           <div>
-            <h4 key={question.id} id={question.id}>{question.content}</h4>
-            <h5>hello</h5>
+            <h4 className="question" key={question.id} id={question.id}>{question.content}</h4>
           </div>
         ))}
       </div>
