@@ -35,7 +35,7 @@ const QuestionOptions = (props) => {
           user_id: user_id,
         });
 
-        console.log(answer);
+        window.location.reload()
       });
 
     return (
@@ -59,6 +59,7 @@ const QuestionOptions = (props) => {
             });
             console.log(answer.value);
           }
+          window.location.reload()
         }
       });
 
@@ -92,7 +93,7 @@ const QuestionOptions = (props) => {
               answer: answer.value,
               user_id: user_id,
             });
-            console.log(answer.value);
+            window.location.reload()
           }
         }
       });

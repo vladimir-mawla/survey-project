@@ -4,10 +4,10 @@ import axios from "axios";
 import QuestionOptions from "./QuestionOptions";
 import GetAnswers from "./GetAnswers";
 
-const user_type = 1;
+// const user_type = 1;
 const QuestionComponent = () => {
   const [questions, setQuestions] = useState([]);
-
+  const user_type = localStorage.getItem("user_type")
   const survey_id = localStorage.getItem("survey_id");
 
   async function getQuestions() {

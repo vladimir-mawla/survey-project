@@ -124,3 +124,16 @@ li {
   margin-top:50px;
 
 }
+.question {
+  background-color: #282c34;
+  color: aliceblue;
+}
+.answer-container {
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+}
+.answer-container-child {
+  background-color: #969696;
+  margin: 5px 2px;
+}

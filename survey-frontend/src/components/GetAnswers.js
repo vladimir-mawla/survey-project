@@ -19,9 +19,11 @@ const GetAnswers = ({ question_id }) => {
   }, []);
 
   return (
-      <div>
+      <div className="answer-container">
           {answers.map((answer, index) => (
+              <div className="answer-container-child">
             <h4 className="answer" key={index} id={answer.id}>{answer.answer}</h4>
+            </div>
         ))}
       </div>
   )
